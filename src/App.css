@@ -9,6 +9,11 @@
 /* 
     SearchBar
 */
+.search-input {
+    margin-left: 10;
+    width: '85%';
+}
+
 
 /* 
     TileList 
@@ -32,7 +37,9 @@
     width: 100%;
     position: relative;
     cursor: pointer;
-    display: block
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
 }
 
 .tile img {
@@ -60,8 +67,7 @@
     opacity: 1;
 }
   
-.icon {
-    color: white;
+.icon-btn {
     font-size: 30px;
     position: absolute;
     top: 3px;
