@@ -4,7 +4,7 @@ import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import {SearchResultsContext} from '../contexts/SearchResultsContext'
 
 const Tile = (props) => {
-    const [saved, setSaved] = useState(props.gif.saved);
+    const [saved, setSaved] = useState(props.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
     const [searchResults, setSearchResults] = useContext(SearchResultsContext);
 
@@ -21,7 +21,7 @@ const Tile = (props) => {
             let gifData = props.gif;
             gifData.saved = true;
             newSavedGifs.push(gifData);
-            setSavedGifs(newSavedGifs)
+            setSavedGifs(newSavedGifs);
         }
         setSaved(!saved);
     }
