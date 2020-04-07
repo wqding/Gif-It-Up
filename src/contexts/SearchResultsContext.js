@@ -1,14 +1,14 @@
 import React, { createContext, useState } from "react";
 
-const SearchResultsContext = createContext({});
+const SearchResultsContext = createContext([]);
 
-const SearchResultsContextProvider = (props) => {
-    const [results, setResults] = useState();
+const SearchResultsProvider = (props) => {
+    const [result, setResult] = useState([]);
     return(
-        <SearchResultsContext.Provider value={[results, setResults]}>
+        <SearchResultsContext.Provider value={[result, setResult]}>
             {props.children}
         </SearchResultsContext.Provider>
     );
 }
 
-export {SearchResultsContext, SearchResultsContextProvider};
+export {SearchResultsContext, SearchResultsProvider};
