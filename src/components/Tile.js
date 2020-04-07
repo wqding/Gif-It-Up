@@ -1,19 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import Container from '@material-ui/core/Container';
+import {SavedGifsContext} from '../contexts/SavedGifsContext'
 
-const Tile = (gif) => {
-    const [saved, setSaved] = useState(false);
+const Tile = (props) => {
+    const [saved, setSaved] = useState(props.gif.saved);
+    const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
+
+    const deleteGifFromSaved = () => {
+        return savedGifs.filter(savedGif => savedGif.id !== props.gif.id);
+    }
+
+    const toggleSave = (newSavedGifs) => {
+        if(saved){
+            let newSavedGifs = deleteGifFromSaved();
+            setSavedGifs(newSavedGifs);
+        }else{
+            let newSavedGifs = savedGifs;
+            let gifData = props.gif;
+            gifData.saved = true;
+            newSavedGifs.push(gifData);
+            setSavedGifs(newSavedGifs)
+        }
+        setSaved(!saved);
+    }
+
     return (
-        
         <div className="tile">
-            <div>
-                <img src={gif.src} alt="" />
-                title: {gif.title}
-                username: {gif.username}
-                <div className="overlay">
-                    <span className="icon"><i class="fas fa-heart"/></span>
-                </div>
-            </div>
+            <img src={props.gif.src} alt="" />
+            <p>
+                Title: {props.gif.title}
+            </p>
+            <p>
+                Username: {props.gif.username}
+            </p>
             
+            <div className="overlay">
+                <span className="icon-btn" 
+                    style={{color: saved?'rgb(119, 59, 231)':'white'}} 
+                    onClick={toggleSave}
+                >
+                    <i className="fas fa-heart"/>
+                </span>
+            </div>
         </div>
     )
 }
