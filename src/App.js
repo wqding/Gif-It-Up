@@ -2,18 +2,21 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Search from './components/Search';
-import Saved from './components/Saved'
-import { SearchResultsProvider } from './contexts/SearchResultsContext'
+import SearchGifs from './components/SearchGifs';
+import SavedGifs from './components/SavedGifs'
+import {SearchResultsProvider} from './contexts/SearchResultsContext'
+import {SavedGifsProvider} from './contexts/SavedGifsContext'
 import "./App.css"
 
 function App() {
   return (
     <SearchResultsProvider>
-      <Router>
-        <Route exact path={"/"} component={Search}/>
-        <Route exact path={"/saved"} component={Saved}/>
-      </Router>
+      <SavedGifsProvider>
+        <Router>
+          <Route exact path={"/"} component={SearchGifs}/>
+          <Route exact path={"/saved"} component={SavedGifs}/>
+        </Router>
+      </SavedGifsProvider>
     </SearchResultsProvider>
   );
 }
