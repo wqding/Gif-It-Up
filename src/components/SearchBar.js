@@ -28,15 +28,11 @@ const SearchBar = () => {
         });
     }
 
-    const isSaved = () => {
-        
-    }
-
     const storeSearchResults = (searchResults) => {
         let condensedResults = searchResults.data.map(gif => {
             return {
                 id: gif.id,
-                saved: (gif.id in savedGifs)?true:false,
+                saved: false,
                 title: gif.title,
                 username: gif.username,
                 src: gif.images.downsized.url

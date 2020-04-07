@@ -1,16 +1,18 @@
 import React, { useState, useContext } from 'react';
 import Container from '@material-ui/core/Container';
 import {SavedGifsContext} from '../contexts/SavedGifsContext'
+import {SearchResultsContext} from '../contexts/SearchResultsContext'
 
 const Tile = (props) => {
     const [saved, setSaved] = useState(props.gif.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
+    const [searchResults, setSearchResults] = useContext(SearchResultsContext);
 
     const deleteGifFromSaved = () => {
         return savedGifs.filter(savedGif => savedGif.id !== props.gif.id);
     }
 
-    const toggleSave = (newSavedGifs) => {
+    const toggleSave = () => {
         if(saved){
             let newSavedGifs = deleteGifFromSaved();
             setSavedGifs(newSavedGifs);
