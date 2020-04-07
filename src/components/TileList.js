@@ -1,18 +1,19 @@
-    
-import React, { useState, useContext } from 'react';
+import React from 'react';
 
 import Tile from './Tile'
-import {SearchResultsContext} from '../contexts/SearchResultsContext'
-const TileList = () => {
-    const [results, setResults] = useContext(SearchResultsContext);
-
+const TileList = (props) => {
     return(
-        <div className = "tile-list">{
-            results.map((gif) => {
-                return <Tile key={gif.id} title={gif.title} username={gif.username} src={gif.src} />
-            })
-        }</div>
+        <div className = "tile-list">
+            {
+                props.gifs.map((gif) => {
+                    return <Tile 
+                        key={gif.id} 
+                        gif={gif} 
+                    />
+                })
+            }
+        </div>
     )
 }
 
-export default TileList
+export default TileList;
