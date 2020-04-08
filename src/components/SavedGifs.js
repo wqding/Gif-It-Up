@@ -13,7 +13,7 @@ const SavedGifs = () => {
     return(
         <div>
             <Container>
-                <Button color="primary"><Link to='/'> Go Back</Link></Button>
+                <Link to='/'><Button color="primary">Go Back</Button></Link>
             </Container>
             <TileList gifs={savedGifs}/>
         </div>

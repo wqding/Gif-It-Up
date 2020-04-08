@@ -67,14 +67,16 @@
     opacity: 1;
 }
   
-.icon-btn {
+.save-btn {
     font-size: 30px;
     position: absolute;
     top: 3px;
     right: 10px
 }
+
+/* fullscreen-btn */
   
-.icon:hover {
+.save-btn:hover {
     color: rgb(119, 59, 231);
 }
 

@@ -6,18 +6,25 @@ import SearchGifs from './components/SearchGifs';
 import SavedGifs from './components/SavedGifs'
 import {SearchResultsProvider} from './contexts/SearchResultsContext'
 import {SavedGifsProvider} from './contexts/SavedGifsContext'
+import {GifDialogProvider} from './contexts/GifDialogContext'
 import "./App.css"
 
 function App() {
   return (
-    <SearchResultsProvider>
-      <SavedGifsProvider>
-        <Router>
-          <Route exact path={"/"} component={SearchGifs}/>
-          <Route exact path={"/saved"} component={SavedGifs}/>
-        </Router>
-      </SavedGifsProvider>
-    </SearchResultsProvider>
+    //I'm not that familiar with react contexts, is there a cleaner way to write this??
+    <GifDialogProvider>
+      <SearchResultsProvider>
+        <SavedGifsProvider>
+
+          <Router>
+            <Route exact path={"/"} component={SearchGifs}/>
+            <Route exact path={"/saved"} component={SavedGifs}/>
+          </Router>
+
+        </SavedGifsProvider>
+      </SearchResultsProvider>
+    </GifDialogProvider>
+    
   );
 }
 

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import Container from '@material-ui/core/Container';
 import {SavedGifsContext} from '../contexts/SavedGifsContext'
-import {SearchResultsContext} from '../contexts/SearchResultsContext'
+import {GifDialogContext} from '../contexts/GifDialogContext'
 
 const Tile = (props) => {
     const [saved, setSaved] = useState(props.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
-    const [searchResults, setSearchResults] = useContext(SearchResultsContext);
+    const [gifShown, setGifShown] = useContext(GifDialogContext);
+    const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
 
     const deleteGifFromSaved = () => {
         return savedGifs.filter(savedGif => savedGif.id !== props.gif.id);
@@ -26,9 +26,14 @@ const Tile = (props) => {
         setSaved(!saved);
     }
 
+    const showGif = () => {
+        setShowGifDialog(true);
+        setGifShown(props.gif)
+    }
+
     return (
         <div className="tile">
-            <img src={props.gif.src} alt="" />
+            <img src={props.gif.src} alt="gif"/>
             <p>
                 Title: {props.gif.title}
             </p>
@@ -37,11 +42,16 @@ const Tile = (props) => {
             </p>
             
             <div className="overlay">
-                <span className="icon-btn" 
+                <span className="save-btn" 
                     style={{color: saved?'rgb(119, 59, 231)':'white'}} 
                     onClick={toggleSave}
                 >
                     <i className="fas fa-heart"/>
+                </span>
+                <span className="fullscreen-btn" 
+                    onClick={showGif}
+                >
+                    <i className="fas fa-expand"/>
                 </span>
             </div>
         </div>

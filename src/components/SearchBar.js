@@ -3,7 +3,6 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Paper, InputBase, Button } from '@material-ui/core';
 import {SearchResultsContext} from '../contexts/SearchResultsContext'
-import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import  { Link } from 'react-router-dom'
 
 import axios from 'axios';
@@ -15,7 +14,6 @@ const TRANSLATE_NAME_PARAM = 's';
 const SearchBar = () => {
     const [searchText, setSearchText] = useState();
     const [results, setResults] = useContext(SearchResultsContext);
-    const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
 
     const searchGifs = () =>{
         let url = `https://knowhow-react-challenge.prod.with-datafire.io/gif/search?${SEARCH_NAME_PARAM}=${searchText}`;
@@ -41,8 +39,8 @@ const SearchBar = () => {
         setResults(condensedResults);
     }
 
-    const redirectToSavedGifs = () => {
-        return 
+    const showRandomGif = () => {
+        
     }
     
     return(
@@ -56,7 +54,8 @@ const SearchBar = () => {
             <IconButton color="primary" aria-label="search" onClick={searchGifs}>
                 <SearchIcon />
             </IconButton>
-            <Button onClick={redirectToSavedGifs} color="primary"><Link to='/saved'> View Saved</Link></Button>
+            <Link to='/saved'><Button color="primary">View Saved</Button></Link>
+            <Button onClick={showRandomGif} color="primary">Random</Button>
         </Paper>
     )
 }

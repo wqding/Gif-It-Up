@@ -3,12 +3,14 @@ import Container from '@material-ui/core/Container';
 import {Jumbotron} from 'react-bootstrap'
 import SearchBar from './SearchBar'
 import TileList from './TileList';
+import GifDialog from './GifDialog'
 
 import {SearchResultsContext} from '../contexts/SearchResultsContext'
 
 
 const SearchGifs = () => {
     const [results, setResults] = useContext(SearchResultsContext);
+
     return(
         <div>
             <Jumbotron fluid>
@@ -17,6 +19,7 @@ const SearchGifs = () => {
                 </Container>
             </Jumbotron>
             <TileList gifs={results}/>
+            <GifDialog/>
         </div>
     )
 }

@@ -13,18 +13,6 @@ const TileList = (props) => {
         return false;
     }
 
-    // const updateSavedFlags = () => {
-    //     let newResults = results;
-    //     for(let i=0; i < newResults.length; i++){
-    //         if(isSaved(newResults[i].id)){
-    //             newResults[i].saved = true;
-    //         }else{
-    //             newResults[i].saved = false;
-    //         }
-    //     }
-    //     setResults(newResults);
-    // }
-
     return(
         <div className = "tile-list">
             {
