@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';

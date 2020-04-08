@@ -11,7 +11,7 @@ import "./App.css"
 
 function App() {
   return (
-    //I'm not that familiar with react contexts, is there a cleaner way to write this??
+    //Not that familiar with react contexts, is there a cleaner way to write this??
     <GifDialogProvider>
       <SearchResultsProvider>
         <SavedGifsProvider>

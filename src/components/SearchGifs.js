@@ -7,9 +7,7 @@ import GifDialog from './GifDialog'
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-
 import {SearchResultsContext} from '../contexts/SearchResultsContext'
-
 
 const SearchGifs = () => {
     const [results, setResults] = useContext(SearchResultsContext);
