@@ -3,7 +3,7 @@ import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import {GifDialogContext} from '../contexts/GifDialogContext'
 
 const Tile = (props) => {
-    const [saved, setSaved] = useState(props.saved);
+    const [saved, setSaved] = useState(props.gif.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
     const [gifShown, setGifShown] = useContext(GifDialogContext);
     const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
@@ -28,7 +28,7 @@ const Tile = (props) => {
 
     const showGif = () => {
         setShowGifDialog(true);
-        setGifShown(props.gif)
+        setGifShown(props.gif);
     }
 
     return (
@@ -48,7 +48,7 @@ const Tile = (props) => {
                 >
                     <i className="fas fa-heart"/>
                 </span>
-                <span className="fullscreen-btn" 
+                <span className="fullscreen" 
                     onClick={showGif}
                 >
                     <i className="fas fa-expand"/>
