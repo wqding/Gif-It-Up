@@ -9,23 +9,19 @@ import {GifDialogContext} from '../contexts/GifDialogContext'
 
 
 const GifDialog = (props) => {
-    const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
-    const [gifShown, setGifShown] = useContext(GifDialogContext);
+    const [[gifShown, setGifShown],[showGifDialog, setShowGifDialog]] = useContext(GifDialogContext);
 
     return(
         // the dialog component seems to use a deprecated function (likely in the transition)which is why it gives an error in the console
         // I also tried to implement the same thing with React modal and I get the same error
         <Dialog open={showGifDialog}>
             <DialogContent>
-                <DialogContentText>
-                    <p>
-                        Title: {gifShown.title}
-                    </p>
-                    <p>
-                        Username: {gifShown.username}
-                    </p>
-                </DialogContentText>
-                
+                <p>
+                    Title: {gifShown.title}
+                </p>
+                <p>
+                    Username: {gifShown.username}
+                </p>
                 <img src={gifShown.src} alt="" />
             </DialogContent>
             <DialogActions>

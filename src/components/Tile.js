@@ -6,8 +6,8 @@ const Tile = (props) => {
     // cannot use props.gif.saved
     const [saved, setSaved] = useState(props.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
-    const [gifShown, setGifShown] = useContext(GifDialogContext);
-    const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
+    const [[gifShown, setGifShown],[showGifDialog, setShowGifDialog]] = useContext(GifDialogContext);
+
 
     const deleteGifFromSaved = () => {
         return savedGifs.filter(savedGif => savedGif.id !== props.gif.id);

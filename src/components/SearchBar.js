@@ -16,8 +16,8 @@ const TRANSLATE_NAME_PARAM = 's';
 const SearchBar = (props) => {
     const [inputText, setInputText] = useState();
     const [results, setResults] = useContext(SearchResultsContext);
-    const [gifShown, setGifShown] = useContext(GifDialogContext);
-    const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
+    const [[gifShown, setGifShown],[showGifDialog, setShowGifDialog]] = useContext(GifDialogContext);
+
 
     const showGif = (gif) => {
         setShowGifDialog(true);
