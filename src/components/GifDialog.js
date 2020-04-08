@@ -1,11 +1,9 @@
 import React, {useContext} from 'react';
-import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
-import Slide from '@material-ui/core/Slide';
 
 import {GifDialogContext} from '../contexts/GifDialogContext'
 
@@ -15,6 +13,8 @@ const GifDialog = (props) => {
     const [gifShown, setGifShown] = useContext(GifDialogContext);
 
     return(
+        // the dialog component seems to use a deprecated function (likely in the transition)which is why it gives an error in the console
+        // I also tried to implement the same thing with React modal and I get the same error
         <Dialog open={showGifDialog}>
             <DialogContent>
                 <DialogContentText>
@@ -29,7 +29,6 @@ const GifDialog = (props) => {
                 <img src={gifShown.src} alt="" />
             </DialogContent>
             <DialogActions>
-                <Button color="primary">Save</Button>
                 <Button onClick={()=>{setShowGifDialog(false)}} color="primary">Close</Button>
             </DialogActions>
         </Dialog>
