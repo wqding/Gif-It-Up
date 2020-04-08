@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import GifDialog from './GifDialog'
 import  { Link } from 'react-router-dom'
 
 import TileList from './TileList';
@@ -16,6 +17,7 @@ const SavedGifs = () => {
                 <Link to='/'><Button color="primary">Go Back</Button></Link>
             </Container>
             <TileList gifs={savedGifs}/>
+            <GifDialog/>
         </div>
     )
 }

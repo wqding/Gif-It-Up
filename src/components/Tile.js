@@ -3,7 +3,8 @@ import {SavedGifsContext} from '../contexts/SavedGifsContext'
 import {GifDialogContext} from '../contexts/GifDialogContext'
 
 const Tile = (props) => {
-    const [saved, setSaved] = useState(props.gif.saved);
+    // cannot use props.gif.saved
+    const [saved, setSaved] = useState(props.saved);
     const [savedGifs, setSavedGifs] = useContext(SavedGifsContext);
     const [gifShown, setGifShown] = useContext(GifDialogContext);
     const [showGifDialog, setShowGifDialog] = useContext(GifDialogContext);
